@@ -61,10 +61,6 @@
                 <h2>Leave A Review</h2>
                 <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form"
                     novalidate>
-                    <!-- <div class="mb-3">
-                        <label class="form-label" for="rating">Rating:</label>
-                        <input class="form-range" type="range" min="1" max="5" id="rating" name="review[rating]">
-                    </div> -->
                     <div class="mb-3">
                         <fieldset class="starability-basic">
                             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0"
@@ -97,8 +93,6 @@
                                 </h5>
                                 <p class="starability-result" data-rating="<%=review.rating%>">
                                     Rated: <%=review.rating%> stars</p>
-                                <!-- <h6 class="card-subtitle mb-2 text-muted">From <%=review.author.username%>
-                                </h6> -->
                                 <p class="card-text">Review: <%=review.body%>
                                 </p>
                                 <% if(user && review.author.equals(user._id)) {%>
@@ -113,16 +107,6 @@
                         <% } %>
         </div>
     </div>
-
-    <!-- <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94LWNvZGluZy1mcmVlIiwiYSI6ImNsY2h2OHVzeTYzMGczdnBqZjJwbDdqc20ifQ.3V9unew8eC0hAGm6LOAMgg';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v12', // style URL
-            center: [-74.5, 40], // starting position [lng, lat]
-            zoom: 9, // starting zoom
-        });
-    </script> -->
     <script>
         const mboxToken = '<%-process.env.MAPBOX_TOKEN%>'
         const campground = <%-JSON.stringify(campground)%>
